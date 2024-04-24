@@ -27,12 +27,18 @@ const HeaderContainer = styled.div`
 `
 const LogoText = styled.h1`
     font-size: 17px;
+    @media (max-width: 480px){
+        font-size: 15px;
+    }
 `
 const RightNav = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 30px;
+    @media (max-width: 480px){
+        gap: 10px;
+    }
 `
 const OrderLink = styled.a`
     font-size: 14px;
