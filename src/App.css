@@ -1,0 +1,13 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  padding: 0;
+  background: #06081d;
+  color: whitesmoke;
+}
+.wrapper{
+  max-width: 1440px;
+  margin: 0 auto;
+}
