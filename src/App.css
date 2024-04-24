@@ -6,8 +6,11 @@ body{
   padding: 0;
   background: #06081d;
   color: whitesmoke;
+  font-family: 'Poppins', sans-serif;
+
 }
 .wrapper{
+  width: 80%;
   max-width: 1440px;
   margin: 0 auto;
 }
