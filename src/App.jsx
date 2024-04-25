@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
 import './App.css'
-import Header from './components/Header'
-import CategoryBar from './components/CategoryBar'
 
 import { fetchList } from './store/data'
 import { useDispatch, useSelector } from 'react-redux'
+import MainRoute from './routes/MainRoute'
 
 const App = () => {
 
@@ -14,6 +13,8 @@ const App = () => {
   useEffect(() => {
     dispatch(fetchList());
   }, [dispatch]);
+
+  console.log(items,'items');
 
   if (loading) {
     return <div>Loading...</div>;
@@ -25,8 +26,7 @@ const App = () => {
 
   return (
     <div>
-      <Header />
-      <CategoryBar />
+      <MainRoute/>
     </div>
   )
 }
