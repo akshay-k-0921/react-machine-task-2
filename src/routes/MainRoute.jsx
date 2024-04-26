@@ -11,15 +11,10 @@ const MainRoute = () => {
       <Header />
       <CategoryBar />
       <Routes>
-        {/* Navigator route to redirect from '/' to '/:id' */}
         <Route path="/" element={<Navigator to="/11" />} />
 
-        {/* Dynamic Route for Category */}
         <Route path="/:id" element={<FoodMenu />} />
         
-        {/* Add more routes as needed */}
-        
-        {/* 404 Route - Catch-all */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

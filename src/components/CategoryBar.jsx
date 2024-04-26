@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 
 const CategoryBar = () => {
   const { items, loading, error } = useSelector((state) => state.list);
-  console.log(items,"items");
 
   return (
     <Container className="wrapper">

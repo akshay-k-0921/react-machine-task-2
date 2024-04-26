@@ -2,8 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { FiShoppingCart } from "react-icons/fi";
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+    const {cartCount} = useSelector(state => state.cart)
+
   return (
     <HeaderContainer className='wrapper'>
         <LogoText>Artisan Resto Cafe</LogoText>
@@ -11,7 +14,7 @@ const Header = () => {
             <OrderLink>My Orders</OrderLink>
             <Cart>
                 <FiShoppingCart style={{width: '24px', height: '24px'}}/>
-                <CartCount>0</CartCount>
+                <CartCount>{cartCount}</CartCount>
             </Cart>
         </RightNav>
     </HeaderContainer>

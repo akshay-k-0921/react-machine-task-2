@@ -8,13 +8,11 @@ import MainRoute from './routes/MainRoute'
 const App = () => {
 
   const dispatch = useDispatch();
-  const { items, loading, error } = useSelector(state => state.list);
+  const { loading, error } = useSelector(state => state.list);
 
   useEffect(() => {
     dispatch(fetchList());
   }, [dispatch]);
-
-  console.log(items,'items');
 
   if (loading) {
     return <div>Loading...</div>;

@@ -1,18 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import CartButtons from "../components/CartButtons";
 
 const FoodMenu = () => {
     const {id} = useParams()
-    console.log(id,"id");
     const data = useSelector((state) => state?.list?.items);
-    console.log(data, "data");
 
-  const filteredData = data && id
-    ? data?.filter((item) => item.menu_category_id === id)
-    : data;
-  console.log(filteredData, "filteredData");
+    const filteredData = data && id
+        ? data?.filter((item) => item.menu_category_id === id)
+        : data;
+
 
   return (
     <Container className="wrapper">
@@ -33,19 +32,13 @@ const FoodMenu = () => {
             <CaloriesText>{dish.dish_calories} Calories</CaloriesText>
             </PriceContainer>
             <Description>{dish.dish_description}</Description>
-            <CountContainer>
-              <MinusButton>-</MinusButton>
-              <Count>0</Count>
-              <PlusButton>+</PlusButton>
-            </CountContainer>
-            {dish.addonCat.dish_addons ? (
-              <CustomizeText>Customization avaiable</CustomizeText>
-            ) : null}
-            
+            <CartButtons dish={dish}/>
+            {dish.addonCat.length > 0 ? (
+                  <CustomizeText>Customization available</CustomizeText>
+                ) : null}
             
           </LeftCOntainer>
           <RightContainer>
-            {/* <CaloriesText>{dish.dish_calories} Calories</CaloriesText> */}
             <FoodImageContainer>
               <FoodImage src={dish.dish_image} alt="Food Image" />
             </FoodImageContainer>
@@ -69,7 +62,7 @@ const Contents = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
-  padding-bottom: 40px;
+  padding-bottom: 15px;
   border-bottom: 1px solid;
   border-color: rgba(255, 255, 255,.1);
   @media (max-width: 640px){
@@ -89,11 +82,12 @@ const FoodName = styled.div`
     display: flex;
     align-items: center;
     gap: 12px;
+  margin-bottom: 10px;
+
 `;
 const NameText = styled.h5`
   font-size: 15px;
   font-weight: 400;
-  margin-bottom: 5px;
   @media (max-width: 480px){
     font-size: 13px;
     }
@@ -127,35 +121,24 @@ const PriceContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 15px;
+    max-height: 20px;
+
 `
 
 const Price = styled.h6`
     font-weight: 400;
     font-size: 13px;
-    margin-bottom: 8px;
 `;
 const Description = styled.div`
     color: rgba(255, 255, 255,.5);
     font-size: 12px;
-    margin-bottom: 8px;
+    margin-bottom: 15px;
 `;
-const CountContainer = styled.div`
-    display: inline-block;
-    background: #51a148;
-    padding: 3px 30px;
-    border-radius: 15px;
+const CustomizeText = styled.p`
+    font-size: 14px;
+    color: #c43329;
 `;
-const MinusButton = styled.button`
-    margin-right: 30px;
-    font-size: 17px;
-`;
-const Count = styled.span`
-    margin-right: 30px;
-`;
-const PlusButton = styled.button`
-    font-size: 17px;
-`;
-const CustomizeText = styled.p``;
 const RightContainer = styled.div`
   width: 18%;
   @media (max-width: 1280px){

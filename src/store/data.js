@@ -10,7 +10,6 @@ const initialState = {
 export const fetchList = createAsyncThunk('list/fetchList', async () => {
   try {
     const response = await Api.get('db0018c8-5982-4d89-a54f-f51fe14d3c89/'); // Replace 'endpoint' with your API endpoint
-    console.log(response.data.data[0].table_menu_list, "response");
     return response.data.data[0].table_menu_list;
   } catch (error) {
     throw new Error('Failed to fetch list');

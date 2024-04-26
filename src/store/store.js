@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import listReducer from './data';
-import {Api} from '../apiConfig/axiosConfig';
+import cartReducer from "./cart";
 
 const store = configureStore({
     reducer: {
       list: listReducer,
-      // Add other reducers here if any
+      cart: cartReducer,
     },
   });
   
